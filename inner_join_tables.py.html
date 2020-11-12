@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[2]:
+
+
+import pandas as pd
+
+
+# ## Read in Data
+
+# In[3]:
+
+
+cd = pd.read_csv('Customer Demand.csv')
+loc = pd.read_csv('locations.csv')
+
+
+# ## View first few rows of data tables
+
+# In[4]:
+
+
+cd.head()
+
+
+# In[5]:
+
+
+loc.head()
+
+
+# ## Inner Join to get store details in orders
+
+# In[7]:
+
+
+with_store_details = cd.merge(loc, how="inner", left_on="Store Assignment", right_on="Id")
+
+
+# In[8]:
+
+
+with_store_details.head()
+
+
+# ## Inner Join to get customer details in orders
+
+# In[9]:
+
+
+with_customer_details = cd.merge(loc, how="inner", left_on="customer", right_on="Id").head()
+
+
+# In[11]:
+
+
+with_customer_details.head()
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
